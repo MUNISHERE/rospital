@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <link
+    name="IMU_link">
+    <inertial>
+      <origin
+        xyz="-0.000320929221288936 -0.000281016175887928 0.000656651591240558"
+        rpy="0 0 0" />
+      <mass
+        value="0.000491630657107432" />
+      <inertia
+        ixx="2.60740156632658E-08"
+        ixy="1.20559518329717E-10"
+        ixz="1.03040853232499E-10"
+        iyy="1.05219690062939E-08"
+        iyz="8.68518895699746E-11"
+        izz="3.63603146259296E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/IMU_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/IMU_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="IMU_joint"
+    type="fixed">
+    <origin
+      xyz="-0.016497 0.002 0.032"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="IMU_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot> 

@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="base_footprint"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0153035409571499 -0.000104495056790101 0.144451320818239"
+        rpy="0 0 0" />
+      <mass
+        value="8.36976133771814" />
+      <inertia
+        ixx="0.134439534189409"
+        ixy="0.000113435598147749"
+        ixz="-0.000259638829695405"
+        iyy="0.160334514687276"
+        iyz="7.17858064248926E-06"
+        izz="0.286274281412351" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0.0701" rpy="0 0 0"/>
+  </joint>
+  <link
+    name="wheel_left_link">
+    <inertial>
+      <origin
+        xyz="1.29063426612674E-15 0.0290000000000001 -7.56339435525888E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.67636522822888" />
+      <inertia
+        ixx="0.00437925095774994"
+        ixy="9.37334798540553E-36"
+        ixz="-6.39017288398117E-36"
+        iyy="0.00781861981087289"
+        iyz="-1.19327077841116E-17"
+        izz="0.00437925095774994" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/WL_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/WL_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_left_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00997450704782056 -0.165 0.0424413114931455"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_left_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="wheel_right_link">
+    <inertial>
+      <origin
+        xyz="-1.0998146837693E-15 0.0290000000000001 -7.91033905045424E-16"
+        rpy="0 0 0" />
+      <mass
+        value="1.67636522822888" />
+      <inertia
+        ixx="0.00437925095774994"
+        ixy="2.48183918923532E-35"
+        ixz="1.97548076031495E-35"
+        iyy="0.00781861981087289"
+        iyz="-1.20253009911148E-17"
+        izz="0.00437925095774994" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/WR_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/WR_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_right_joint"
+    type="continuous">
+    <origin
+      xyz="-0.00998549295217773 0.165 0.0424413114931452"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_right_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="SF_link">
+    <inertial>
+      <origin
+        xyz="-0.000741617479152856 -0.000440542655304963 0.000304836017723242"
+        rpy="0 0 0" />
+      <mass
+        value="0.0226599458506464" />
+      <inertia
+        ixx="3.04243352925476E-06"
+        ixy="-1.06228231488976E-20"
+        ixz="-2.10390463354871E-11"
+        iyy="4.69226610526888E-06"
+        iyz="2.44129737654398E-21"
+        izz="3.04246223108001E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SF_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SF_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="SF_joint"
+    type="fixed">
+    <origin
+      xyz="0.205921758347577 0 -0.0334694761074416"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SF_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="SB_link">
+    <inertial>
+      <origin
+        xyz="-0.000741617479152828 -0.000440542655306468 0.000304836017723242"
+        rpy="0 0 0" />
+      <mass
+        value="0.0226599458506464" />
+      <inertia
+        ixx="3.04243352925476E-06"
+        ixy="-1.06229858046925E-20"
+        ixz="-2.10390463355186E-11"
+        iyy="4.69226610526888E-06"
+        iyz="2.4415141565532E-21"
+        izz="3.04246223108001E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SB_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SB_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="SB_joint"
+    type="fixed">
+    <origin
+      xyz="-0.204078241652423 0 -0.0334694761074416"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SB_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

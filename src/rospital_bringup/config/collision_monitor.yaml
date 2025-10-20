@@ -1,0 +1,116 @@
+collision_monitor:
+  ros__parameters:
+    use_sim_time: True
+    base_frame_id: "base_footprint"
+    odom_frame_id: "odom"
+    cmd_vel_in_topic: "cmd_vel_nav"
+    cmd_vel_out_topic: "cmd_vel"
+    transform_tolerance: 0.5
+    source_timeout: 5.0
+    base_shift_correction: True
+    stop_pub_timeout: 2.0
+    # Polygons represent zone around the robot for "stop" and "slowdown" action types,
+    # and robot footprint for "approach" action type.
+    # Footprint could be "polygon" type with dynamically set footprint from footprint_topic
+    # or "circle" type with static footprint set by radius. "footprint_topic" parameter
+    # to be ignored in circular case.
+    polygons: ["PolygonStop", "PolygonSlow", "FootprintApproach"]
+    PolygonStop:
+      type: "polygon"
+      points: [0.43, 0.43, 0.43, -0.43, 0.43, -0.43, 0.43, 0.43]
+      action_type: "stop"
+      max_points: 3
+      visualize: True
+      polygon_pub_topic: "polygon_stop"
+      enabled: True
+    PolygonSlow:
+      type: "polygon"
+      points: [0.6, 0.6, 0.6, -0.6, -0.6, -0.6, -0.6, 0.6]
+      action_type: "slowdown"
+      max_points: 3
+      slowdown_ratio: 0.5
+      visualize: True
+      polygon_pub_topic: "polygon_slowdown"
+      enabled: True
+    FootprintApproach:
+      type: "polygon"
+      action_type: "approach"
+      footprint_topic: "/local_costmap/published_footprint"
+      time_before_collision: 1.5
+      simulation_time_step: 0.1
+      max_points: 5
+      visualize: False
+      enabled: True
+    observation_sources: ["scan", "F1", "F2", "B1", "B2","R1", "R2","L1", "L2"]
+    scan:
+      type: "scan"
+      topic: "/scan"
+      enabled: True
+      min_height: 0.15
+      max_height: 2.0
+      obstacle_max_range: 3.0
+      obstacle_min_range: 0.2
+    F1:
+      type: "range"
+      topic: "/F1"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    F2:
+      type: "range"
+      topic: "/F2"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    B1:
+      type: "range"
+      topic: "/B1"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    B2:
+      type: "range"
+      topic: "/B2"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    R1:
+      type: "range"
+      topic: "/R1"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    R2:
+      type: "range"
+      topic: "/R2"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    L1:
+      type: "range"
+      topic: "/L1"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1
+    L2:
+      type: "range"
+      topic: "/L2"
+      enabled: True
+      min_height: 0.1
+      max_height: 0.5
+      obstacle_max_range: 1.0
+      obstacle_min_range: 0.1 

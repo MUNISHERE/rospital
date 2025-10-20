@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name ="rospital" xmlns:xacro="http://ros.org/wiki/xacro" >
+
+    <xacro:arg name="is_sim" default="true"/>
+
+    <xacro:include filename="rospital_core.xacro" />
+    <xacro:include filename="rospital_ros2_control.xacro" />
+    <xacro:include filename="rospital_gazebo.xacro" />
+    <xacro:include filename="lidar.xacro"/>
+    <xacro:include filename="imu.xacro"/> 
+    <xacro:include filename="ultrasonic.xacro"/>
+</robot>

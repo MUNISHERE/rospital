@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <link
+    name="R2_link">
+    <inertial>
+      <origin
+        xyz="-0.0025 2.77555756156289E-17 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="-5.81793843725135E-21"
+        ixz="-5.96110879390941E-22"
+        iyy="2.099625E-07"
+        iyz="4.31007979377368E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSR2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSR2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R2_joint"
+    type="fixed">
+    <origin
+      xyz="-0.19111 0.2 0.053"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="R2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="R1_link">
+    <inertial>
+      <origin
+        xyz="-0.00249999999999997 0 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="-5.81793843725135E-21"
+        ixz="-5.96110879390941E-22"
+        iyy="2.099625E-07"
+        iyz="4.31007979377368E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSR1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSR1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R1_joint"
+    type="fixed">
+    <origin
+      xyz="0.17111 0.2 0.053"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="R1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="L1_link">
+    <inertial>
+      <origin
+        xyz="-0.3975 0.000200000000764616 3.82339992999192E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="-5.81619484816385E-21"
+        ixz="-5.93312192183031E-22"
+        iyy="2.099625E-07"
+        iyz="4.36097619657057E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSL1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSL1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L1_joint"
+    type="fixed">
+    <origin
+      xyz="0.17111 0.2 0.053"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="L1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="L2_link">
+    <inertial>
+      <origin
+        xyz="-0.3975 2.77555756156289E-15 1.39471767468535E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="-5.81619484816385E-21"
+        ixz="-5.93312192183032E-22"
+        iyy="2.099625E-07"
+        iyz="4.36097619657056E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSL2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSL2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L2_joint"
+    type="fixed">
+    <origin
+      xyz="-0.19111 0.2 0.053"
+      rpy="0 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="L2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="F1_link">
+    <inertial>
+      <origin
+        xyz="-0.00250000000000006 -5.55111512312578E-17 2.08166817117217E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="8.68146712826889E-21"
+        ixz="-1.41356690940057E-21"
+        iyy="2.099625E-07"
+        iyz="-2.18819838261876E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSF1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSF1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F1_joint"
+    type="fixed">
+    <origin
+      xyz="0.24377 -0.1375 0.053"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="F1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="F2_link">
+    <inertial>
+      <origin
+        xyz="-0.0025 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="5.25375909383981E-25"
+        ixz="-7.00116646973039E-22"
+        iyy="2.099625E-07"
+        iyz="-2.31893911266524E-21"
+        izz="8.45625000000001E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSF2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSF2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F2_joint"
+    type="fixed">
+    <origin
+      xyz="0.24377 0.1375 0.053"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="F2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="B1_link">
+    <inertial>
+      <origin
+        xyz="-0.0025 -2.77555756156289E-17 -6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="2.82808762548247E-21"
+        ixz="-6.10654665296428E-22"
+        iyy="2.099625E-07"
+        iyz="4.9692870616114E-22"
+        izz="8.45625E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSB1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSB1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B1_joint"
+    type="fixed">
+    <origin
+      xyz="-0.26377 -0.1375 0.053"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="B1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="B2_link">
+    <inertial>
+      <origin
+        xyz="-0.0025 -2.77555756156289E-17 -3.67067487516692E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.00495" />
+      <inertia
+        ixx="1.0349625E-06"
+        ixy="2.82367599554885E-21"
+        ixz="-6.10875246793108E-22"
+        iyy="2.099625E-07"
+        iyz="3.66943363241785E-22"
+        izz="8.45624999999998E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSB2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rospital_description/meshes/SSB2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="B2_joint"
+    type="fixed">
+    <origin
+      xyz="-0.26377 0.1375 0.053888"
+      rpy="0 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="B2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

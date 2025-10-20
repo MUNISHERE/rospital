@@ -1,0 +1,8 @@
+planner:
+  model_path: "/home/ros2_user/neupan_model"
+  kinematics: "diff"
+  control_rate: 10.0
+  cmd_topic: "/cmd_vel"
+  laser_topic: "/scan"
+  odom_topic: "/odom"
+  path_topic: "/initial_path"

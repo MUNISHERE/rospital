@@ -1,0 +1,9 @@
+<library path="rospital_hardware_interface">
+  <class name="rospital_firmware/RospitalInterface"
+         type="rospital_firmware::RospitalInterface"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware interface plugin for controlling a robot via Arduino using ros2_control.
+    </description>
+  </class>
+</library>
