@@ -1,4 +1,5 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
+
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <link name="base_footprint"/>
@@ -7,17 +8,17 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="-0.0153035409571499 -0.000104495056790101 0.144451320818239"
+        xyz="0.00298593644358607 -0.000268295172875241 0.154640959753498"
         rpy="0 0 0" />
       <mass
-        value="8.36976133771814" />
+        value="12.0012331336924" />
       <inertia
-        ixx="0.134439534189409"
-        ixy="0.000113435598147749"
-        ixz="-0.000259638829695405"
-        iyy="0.160334514687276"
-        iyz="7.17858064248926E-06"
-        izz="0.286274281412351" />
+        ixx="0.35866059453322"
+        ixy="4.67770377513155E-08"
+        ixz="0.000423861580413772"
+        iyy="0.233823654906046"
+        iyz="4.66362844507336E-09"
+        izz="0.375131573810826" />
     </inertial>
     <visual>
       <origin
@@ -52,17 +53,17 @@
     name="wheel_left_link">
     <inertial>
       <origin
-        xyz="1.29063426612674E-15 0.0290000000000001 -7.56339435525888E-16"
+        xyz="-8.64344718974191E-06 0.0228237946886783 7.57765177879927E-08"
         rpy="0 0 0" />
       <mass
-        value="1.67636522822888" />
+        value="0.778339693950675" />
       <inertia
-        ixx="0.00437925095774994"
-        ixy="9.37334798540553E-36"
-        ixz="-6.39017288398117E-36"
-        iyy="0.00781861981087289"
-        iyz="-1.19327077841116E-17"
-        izz="0.00437925095774994" />
+        ixx="0.00165430356623842"
+        ixy="6.08982301451092E-09"
+        ixz="3.56600628105672E-11"
+        iyy="0.0030911762450513"
+        iyz="-2.8372582055542E-11"
+        izz="0.00165423410528579" />
     </inertial>
     <visual>
       <origin
@@ -70,7 +71,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/WL_Link.STL" />
+          filename="package://rospital_description/meshes/wheel_left_link.STL" />
       </geometry>
       <material
         name="">
@@ -84,7 +85,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/WL_Link.STL" />
+          filename="package://rospital_description/meshes/wheel_left_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -92,30 +93,30 @@
     name="wheel_left_joint"
     type="continuous">
     <origin
-      xyz="-0.00997450704782056 -0.165 0.0424413114931455"
-      rpy="0 0 3.14159265358979" />
+      xyz="0 0.161 0.0154413114931434"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
       link="wheel_left_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="wheel_right_link">
     <inertial>
       <origin
-        xyz="-1.0998146837693E-15 0.0290000000000001 -7.91033905045424E-16"
+        xyz="8.64344718911542E-06 -0.0228237946886785 7.57765181002429E-08"
         rpy="0 0 0" />
       <mass
-        value="1.67636522822888" />
+        value="0.778339693950669" />
       <inertia
-        ixx="0.00437925095774994"
-        ixy="2.48183918923532E-35"
-        ixz="1.97548076031495E-35"
-        iyy="0.00781861981087289"
-        iyz="-1.20253009911148E-17"
-        izz="0.00437925095774994" />
+        ixx="0.00165430356623842"
+        ixy="6.08982301952646E-09"
+        ixz="-3.56600611496615E-11"
+        iyy="0.00309117624505131"
+        iyz="2.83725665326271E-11"
+        izz="0.0016542341052858" />
     </inertial>
     <visual>
       <origin
@@ -123,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/WR_Link.STL" />
+          filename="package://rospital_description/meshes/wheel_right_link.STL" />
       </geometry>
       <material
         name="">
@@ -137,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/WR_Link.STL" />
+          filename="package://rospital_description/meshes/wheel_right_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -145,7 +146,7 @@
     name="wheel_right_joint"
     type="continuous">
     <origin
-      xyz="-0.00998549295217773 0.165 0.0424413114931452"
+      xyz="0 -0.161 0.0154413114931451"
       rpy="0 0 0" />
     <parent
       link="base_link" />
@@ -155,20 +156,20 @@
       xyz="0 1 0" />
   </joint>
   <link
-    name="SF_link">
+    name="caster_front_link">
     <inertial>
       <origin
-        xyz="-0.000741617479152856 -0.000440542655304963 0.000304836017723242"
+        xyz="0.000805650652548229 5.72729797615468E-17 -4.48165838715792E-06"
         rpy="0 0 0" />
       <mass
-        value="0.0226599458506464" />
+        value="0.0386238363179237" />
       <inertia
-        ixx="3.04243352925476E-06"
-        ixy="-1.06228231488976E-20"
-        ixz="-2.10390463354871E-11"
-        iyy="4.69226610526888E-06"
-        iyz="2.44129737654398E-21"
-        izz="3.04246223108001E-06" />
+        ixx="7.66294109641648E-06"
+        ixy="-1.82721726780336E-20"
+        ixz="2.42889623642253E-11"
+        iyy="1.29044379500025E-05"
+        iyz="-4.77133079419545E-24"
+        izz="7.66293122817673E-06" />
     </inertial>
     <visual>
       <origin
@@ -176,7 +177,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/SF_Link.STL" />
+          filename="package://rospital_description/meshes/caster_front_link.STL" />
       </geometry>
       <material
         name="">
@@ -190,38 +191,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/SF_Link.STL" />
+          filename="package://rospital_description/meshes/caster_front_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="SF_joint"
+    name="caster_front_joint"
     type="fixed">
     <origin
-      xyz="0.205921758347577 0 -0.0334694761074416"
+      xyz="0.229250238887004 -0.000124017376899337 -0.0431115511971616"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="SF_link" />
+      link="caster_front_link" />
     <axis
       xyz="0 0 0" />
   </joint>
   <link
-    name="SB_link">
+    name="caster_rear_link">
     <inertial>
       <origin
-        xyz="-0.000741617479152828 -0.000440542655306468 0.000304836017723242"
+        xyz="-0.000805650652548229 -6.01461155186334E-17 -4.48165838716486E-06"
         rpy="0 0 0" />
       <mass
-        value="0.0226599458506464" />
+        value="0.0386238363179237" />
       <inertia
-        ixx="3.04243352925476E-06"
-        ixy="-1.06229858046925E-20"
-        ixz="-2.10390463355186E-11"
-        iyy="4.69226610526888E-06"
-        iyz="2.4415141565532E-21"
-        izz="3.04246223108001E-06" />
+        ixx="7.66294109641648E-06"
+        ixy="-3.86943114962554E-20"
+        ixz="-2.42889623642257E-11"
+        iyy="1.29044379500025E-05"
+        iyz="-7.32910421549178E-20"
+        izz="7.66293122817673E-06" />
     </inertial>
     <visual>
       <origin
@@ -229,7 +230,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/SB_Link.STL" />
+          filename="package://rospital_description/meshes/caster_rear_link.STL" />
       </geometry>
       <material
         name="">
@@ -243,20 +244,20 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/SB_Link.STL" />
+          filename="package://rospital_description/meshes/caster_rear_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="SB_joint"
+    name="caster_rear_joint"
     type="fixed">
     <origin
-      xyz="-0.204078241652423 0 -0.0334694761074416"
+      xyz="-0.229157886818826 -0.000123712642857387 -0.0431115511971648"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="SB_link" />
+      link="caster_rear_link" />
     <axis
       xyz="0 0 0" />
   </joint>

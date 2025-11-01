@@ -1,0 +1,10 @@
+.vscode/
+.vscode/
+.vscode/
+.vscode/browse.vc.db
+build/
+install/
+log/
+.vscode/
+.idea/
+*.db

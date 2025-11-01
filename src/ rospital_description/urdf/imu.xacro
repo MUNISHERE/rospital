@@ -5,16 +5,16 @@
     name="IMU_link">
     <inertial>
       <origin
-        xyz="-0.000320929221288936 -0.000281016175887928 0.000656651591240558"
+        xyz="0.000281016175887924 -0.000320929221288936 0.000656651591240559"
         rpy="0 0 0" />
       <mass
         value="0.000491630657107432" />
       <inertia
-        ixx="2.60740156632658E-08"
-        ixy="1.20559518329717E-10"
-        ixz="1.03040853232499E-10"
-        iyy="1.05219690062939E-08"
-        iyz="8.68518895699746E-11"
+        ixx="1.05219690062939E-08"
+        ixy="-1.20559518329718E-10"
+        ixz="-8.68518895699743E-11"
+        iyy="2.60740156632658E-08"
+        iyz="1.03040853232499E-10"
         izz="3.63603146259296E-08" />
     </inertial>
     <visual>
@@ -23,7 +23,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/IMU_Link.STL" />
+          filename="package://rospital_description/meshes/IMU_link.STL" />
       </geometry>
       <material
         name="">
@@ -37,7 +37,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/IMU_Link.STL" />
+          filename="package://rospital_description/meshes/IMU_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -45,7 +45,7 @@
     name="IMU_joint"
     type="fixed">
     <origin
-      xyz="-0.016497 0.002 0.032"
+      xyz="0 0 0.005"
       rpy="0 0 0" />
     <parent
       link="base_link" />

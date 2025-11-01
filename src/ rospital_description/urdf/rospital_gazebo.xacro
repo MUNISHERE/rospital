@@ -21,8 +21,8 @@
   <!-- Wheels -->
   <gazebo reference="wheel_left_link">
     <material>Gazebo/Blue</material>
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>1000000000000000.0</mu1>
+    <mu2>1000000000000000.0</mu2>
     <kp>1000000000000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
@@ -32,8 +32,8 @@
 
   <gazebo reference="wheel_right_link">
     <material>Gazebo/Blue</material>
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>1000000000000000.0</mu1>
+    <mu2>1000000000000000.0</mu2>
     <kp>1000000000000.0</kp>
     <kd>10.0</kd>
     <minDepth>0.001</minDepth>
@@ -42,7 +42,7 @@
   </gazebo>
     
   <!-- Caster Wheels -->
-  <gazebo reference="SB_link">
+  <gazebo reference="caster_rear_link">
     <material>Gazebo/FlatBlack</material>
     <mu1>0.1</mu1>
     <mu2>0.1</mu2>
@@ -52,7 +52,7 @@
     <maxVel>1.0</maxVel>
   </gazebo>
     
-  <gazebo reference="SF_link">
+  <gazebo reference="caster_front_link">
     <material>Gazebo/FlatBlack</material>
     <mu1>0.1</mu1>
     <mu2>0.1</mu2>
@@ -161,8 +161,8 @@
     </sensor>
   </gazebo>
   
-  <gazebo reference="F1_link">
-    <sensor name="F1" type="ray">
+  <gazebo reference="USB_link">
+    <sensor name="USB" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -181,20 +181,20 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="f1_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usb_plugin">
         <ros>
-          <remapping>~/out:=F1</remapping>
+          <remapping>~/out:=ultrasound_1</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>F1_link</frameName>
+        <frameName>USB_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>
     </sensor>
   </gazebo>
 
-  <gazebo reference="F2_link">
-    <sensor name="F2" type="ray">
+  <gazebo reference="USL1_link">
+    <sensor name="USL1" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -213,20 +213,20 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="f2_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usl1_plugin">
         <ros>
-          <remapping>~/out:=F2</remapping>
+          <remapping>~/out:=ultrasound_2</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>F2_link</frameName>
+        <frameName>USL1_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>
     </sensor>
   </gazebo>
 
-  <gazebo reference="L1_link">
-    <sensor name="L1" type="ray">
+  <gazebo reference="USL2_link">
+    <sensor name="USL2" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -245,20 +245,20 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="l1_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usl2_plugin">
         <ros>
-          <remapping>~/out:=L1</remapping>
+          <remapping>~/out:=ultrasound_3</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>L1_link</frameName>
+        <frameName>USL2_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>
     </sensor>
   </gazebo>
 
-  <gazebo reference="L2_link">
-    <sensor name="L2" type="ray">
+  <gazebo reference="USR1_link">
+    <sensor name="USR1" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -277,20 +277,20 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="l2_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usr1_plugin">
         <ros>
-          <remapping>~/out:=L2</remapping>
+          <remapping>~/out:=ultrasound_4</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>L2_link</frameName>
+        <frameName>USR1_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>
     </sensor>
   </gazebo>
 
-  <gazebo reference="R1_link">
-    <sensor name="R1" type="ray">
+  <gazebo reference="USR2_link">
+    <sensor name="USR2" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -309,20 +309,20 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="r1_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usr2_plugin">
         <ros>
-          <remapping>~/out:=R1</remapping>
+          <remapping>~/out:=ultrasound_5</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>R1_link</frameName>
+        <frameName>USR2_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>
     </sensor>
   </gazebo>
 
-  <gazebo reference="R2_link">
-    <sensor name="R2" type="ray">
+  <gazebo reference="USF_link">
+    <sensor name="USF" type="ray">
       <always_on>true</always_on>
       <visualize>true</visualize>
       <update_rate>50</update_rate>
@@ -341,75 +341,12 @@
           <resolution>0.015000</resolution>
         </range>
       </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="r2_plugin">
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="usf_plugin">
         <ros>
-          <remapping>~/out:=R2</remapping>
+          <remapping>~/out:=ultrasound_6</remapping>
         </ros>
         <output_type>sensor_msgs/Range</output_type>
-        <frameName>R2_link</frameName>
-        <radiation_type>ultrasound</radiation_type>
-        <fov>0.2967</fov>
-      </plugin>
-    </sensor>
-  </gazebo>
-  <gazebo reference="B1_link">
-    <sensor name="B1" type="ray">
-      <always_on>true</always_on>
-      <visualize>true</visualize>
-      <update_rate>50</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>5</samples>
-            <resolution>1.00000</resolution>
-            <min_angle>-0.14835</min_angle>
-            <max_angle>0.14835</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.120000</min>
-          <max>4.0</max>
-          <resolution>0.015000</resolution>
-        </range>
-      </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="b1_plugin">
-        <ros>
-          <remapping>~/out:=B1</remapping>
-        </ros>
-        <output_type>sensor_msgs/Range</output_type>
-        <frameName>B1_link</frameName>
-        <radiation_type>ultrasound</radiation_type>
-        <fov>0.2967</fov>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo reference="B2_link">
-    <sensor name="B2" type="ray">
-      <always_on>true</always_on>
-      <visualize>true</visualize>
-      <update_rate>50</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>5</samples>
-            <resolution>1.00000</resolution>
-            <min_angle>0.00</min_angle>
-            <max_angle>0.25</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.120000</min>
-          <max>4.0</max>
-          <resolution>0.015000</resolution>
-        </range>
-      </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="b2_plugin">
-        <ros>
-          <remapping>~/out:=B2</remapping>
-        </ros>
-        <output_type>sensor_msgs/Range</output_type>
-        <frameName>B2_link</frameName>
+        <frameName>USF_link</frameName>
         <radiation_type>ultrasound</radiation_type>
         <fov>0.2967</fov>
       </plugin>

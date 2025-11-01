@@ -4,17 +4,17 @@
     name="laser_link">
     <inertial>
       <origin
-        xyz="0.0067665301166636 -9.19261110874925E-05 -0.00738187226715975"
+        xyz="-4.16811316961141E-07 -0.00020012090060817 0.0126456553172981"
         rpy="0 0 0" />
       <mass
-        value="1.33076913637071" />
+        value="0.00949435768129115" />
       <inertia
-        ixx="0.00061491794045409"
-        ixy="-8.01984318977561E-07"
-        ixz="0.00015824302591117"
-        iyy="0.000960697335617222"
-        iyz="-3.09162986587468E-06"
-        izz="0.00109815200027136" />
+        ixx="3.81407368895801E-06"
+        ixy="-2.89093384914113E-11"
+        ixz="2.07953967746501E-11"
+        iyy="3.81525913149567E-06"
+        iyz="-8.08800420939772E-10"
+        izz="4.9344522853465E-06" />
     </inertial>
     <visual>
       <origin
@@ -22,12 +22,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/Lidar_Link.STL" />
+          filename="package://rospital_description/meshes/laser_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.0823529411764706 0.0823529411764706 0.0823529411764706 1" />
       </material>
     </visual>
     <collision>
@@ -36,7 +36,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://rospital_description/meshes/Lidar_Link.STL" />
+          filename="package://rospital_description/meshes/laser_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -44,7 +44,7 @@
     name="laser_joint"
     type="fixed">
     <origin
-      xyz="0.015374 0.00030891 0.16515"
+      xyz="0.197743015846854 0.0027430158468545 0.159099867903085"
       rpy="0 0 0" />
     <parent
       link="base_link" />
