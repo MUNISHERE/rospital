@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name ="rospital" xmlns:xacro="http://ros.org/wiki/xacro" >
+
+    <xacro:include filename="rospital_core.xacro" />
+    <xacro:include filename="dual_arm.xacro" />
+    <xacro:include filename="lidar.xacro"/>
+    <xacro:include filename="imu.xacro"/> 
+    <xacro:include filename="ultrasonic.xacro"/>
+</robot>

@@ -1,0 +1,13 @@
+# Default initial positions for rospital's ros2_control fake system
+
+initial_positions:
+  left_elbow_joint: 0.0
+  left_left_finger_joint: 0.0
+  left_right_finger_joint: 0.0
+  left_shoulder_joint: 0.0
+  left_wrist_joint: 0.0
+  right_elbow_joint: 0.0
+  right_left_finger_joint: 0.0
+  right_right_finger_joint: 0.0
+  right_shoulder_joint: 0.0
+  right_wrist_joint: 0.0

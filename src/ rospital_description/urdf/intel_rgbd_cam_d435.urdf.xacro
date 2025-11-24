@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <xacro:property name="d435_cam_width" value="0.090"/>
+    <xacro:property name="d435_cam_height" value="0.025"/>
+    <xacro:property name="d435_cam_depth" value="0.02505"/>
+
+    <xacro:property name="d435_cam_depth_to_infra1_offset" value="0.0"/>
+    <xacro:property name="d435_cam_depth_to_infra2_offset" value="-0.050"/>
+    <xacro:property name="d435_cam_depth_to_color_offset" value="0.015"/>
+
+    <xacro:property name="camera_tilt_angle_deg" value="0"/>
+
+    <joint name="camera_head_joint" type="revolute">
+      <parent link="base_link"/>
+      <child link="camera_head_link" />
+      <origin xyz="0.25 0.0 0.95" rpy="0.0 ${camera_tilt_angle_deg * M_PI / 180} 0.0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-0.785" upper="0.785" effort="100" velocity="3.141592653589793"/>
+    </joint>
+
+    <link name="camera_head_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="${M_PI/2} 0.0 ${M_PI/2}"/>
+        <geometry>
+          <mesh filename="package://rospital_description/meshes/d435.stl" />
+        </geometry>
+        <material name="aluminum">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${d435_cam_depth} ${d435_cam_width} ${d435_cam_height}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.072" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257" />
+      </inertial>
+    </link>
+
+    <joint name="camera_head_depth_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="camera_head_link"/>
+      <child link="camera_head_depth_frame" />
+    </joint>
+    <link name="camera_head_depth_frame"/>
+
+    <joint name="camera_head_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_head_depth_frame" />
+      <child link="camera_head_depth_optical_frame" />
+    </joint>
+    <link name="camera_head_depth_optical_frame"/>
+
+    <joint name="camera_head_infra1_joint" type="fixed">
+      <origin xyz="0 ${d435_cam_depth_to_infra1_offset} 0" rpy="0 0 0" />
+      <parent link="camera_head_link" />
+      <child link="camera_head_infra1_frame" />
+    </joint>
+    <link name="camera_head_infra1_frame"/>
+
+    <joint name="camera_head_infra1_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_head_infra1_frame" />
+      <child link="camera_head_infra1_optical_frame" />
+    </joint>
+    <link name="camera_head_infra1_optical_frame"/>
+
+    <joint name="camera_head_infra2_joint" type="fixed">
+      <origin xyz="0 ${d435_cam_depth_to_infra2_offset} 0" rpy="0 0 0" />
+      <parent link="camera_head_link" />
+      <child link="camera_head_infra2_frame" />
+    </joint>
+    <link name="camera_head_infra2_frame"/>
+
+    <joint name="camera_head_infra2_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_head_infra2_frame" />
+      <child link="camera_head_infra2_optical_frame" />
+    </joint>
+    <link name="camera_head_infra2_optical_frame"/>
+
+    <joint name="camera_head_color_joint" type="fixed">
+      <origin xyz="0 ${d435_cam_depth_to_color_offset} 0" rpy="0 0 0" />
+      <parent link="camera_head_link" />
+      <child link="camera_head_color_frame" />
+    </joint>
+    <link name="camera_head_color_frame"/>
+
+    <joint name="camera_head_color_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <parent link="camera_head_color_frame" />
+      <child link="camera_head_color_optical_frame" />
+    </joint>
+    <link name="camera_head_color_optical_frame"/>
+
+    <gazebo reference="camera_head_link">
+      <sensor name="camera_head" type="depth"> 
+        <camera>
+          <horizontal_fov>1.5184</horizontal_fov>
+          <image>
+            <width>424</width>
+            <height>240</height>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>1.5</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <always_on>true</always_on>
+        <update_rate>5</update_rate>
+        <visualize>true</visualize>
+        <plugin name="color_camera_controller" filename="libgazebo_ros_camera.so">
+          <ros>
+            <namespace>camera_head</namespace>
+            <image_topic>color/image_raw</image_topic>
+            <camera_info_topic>color/camera_info</camera_info_topic>
+          </ros>
+          <camera_name>camera_head_color_frame</camera_name>
+          <frame_name>camera_head_color_optical_frame</frame_name>
+          <hack_baseline>0.0</hack_baseline>
+        </plugin>
+        <plugin name="depth_camera_controller" filename="libgazebo_ros_depth_camera.so">
+          <ros>
+            <namespace>camera_head</namespace>
+            <image_topic>depth/image_raw</image_topic>
+            <camera_info_topic>depth/camera_info</camera_info_topic>
+            <point_cloud_topic>points</point_cloud_topic>
+          </ros>
+          <camera_name>camera_head_depth_frame</camera_name>
+          <frame_name>camera_head_depth_optical_frame</frame_name>
+          <point_cloud_cutoff>0.05</point_cloud_cutoff>
+          <point_cloud_cutoff_max>1.5</point_cloud_cutoff_max>
+        </plugin>
+
+      </sensor>
+    </gazebo>
+</robot>

@@ -1,0 +1,53 @@
+# MoveIt uses this configuration for controller management
+trajectory_execution:
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  allowed_start_tolerance: 0.01
+  execution_duration_monitoring: true
+  
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - left_arm_controller
+    - right_arm_controller
+    - left_gripper_controller
+    - right_gripper_controller
+    - dual_arms_controller
+
+  left_arm_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - left_shoulder_joint
+      - left_elbow_joint
+      - left_wrist_joint
+  right_arm_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - right_shoulder_joint
+      - right_elbow_joint
+      - right_wrist_joint
+  left_gripper_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - left_left_finger_joint
+      - left_right_finger_joint
+  right_gripper_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - right_left_finger_joint
+      - right_right_finger_joint
+  dual_arms_controller:
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - left_shoulder_joint
+      - left_elbow_joint
+      - left_wrist_joint
+      - right_shoulder_joint
+      - right_elbow_joint
+      - right_wrist_joint

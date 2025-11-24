@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: rospital_description
+    relative_path: urdf/rospital.urdf
+  srdf:
+    relative_path: config/rospital.srdf
+  package_settings:
+    author_name: MUNISHERE
+    author_email: tienzero0@gmail.com
+    generated_timestamp: 1763902113
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

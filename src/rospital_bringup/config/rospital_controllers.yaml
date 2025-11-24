@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 10 # Hz
+    update_rate: 100 # Hz
 
     rospital_controller:
       type: diff_drive_controller/DiffDriveController
@@ -10,6 +10,21 @@ controller_manager:
 
     simple_velocity_controller:
       type: velocity_controllers/JointGroupVelocityController
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    
+    dual_arms_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
 
 rospital_controller:
   ros__parameters:
@@ -73,3 +88,66 @@ simple_velocity_controller:
     joints:
       - wheel_left_joint
       - wheel_right_joint
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - left_shoulder_joint
+      - left_elbow_joint
+      - left_wrist_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - right_shoulder_joint
+      - right_elbow_joint
+      - right_wrist_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+left_gripper_controller:
+  ros__parameters:
+    joints:
+      - left_left_finger_joint
+      - left_right_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: true
+
+right_gripper_controller:
+  ros__parameters:
+    joints:
+      - right_left_finger_joint
+      - right_right_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: true
+
+dual_arms_controller:
+  ros__parameters:
+    joints:
+      - left_shoulder_joint
+      - left_elbow_joint
+      - left_wrist_joint
+      - right_shoulder_joint
+      - right_elbow_joint
+      - right_wrist_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
